@@ -37,8 +37,10 @@ describe('linkedList', function() {
   });
 
   it("should contain a value that was added", function(){
-    linkedList.addToTail(4);
     linkedList.addToTail(5);
+    linkedList.addToTail(4);
+    linkedList.addToTail(7);
+    linkedList.addToTail(9);
     expect(linkedList.contains(4)).to.equal(true);
     expect(linkedList.contains(5)).to.equal(true);
     expect(linkedList.contains(6)).to.equal(false);
@@ -49,6 +51,23 @@ describe('linkedList', function() {
     linkedList.addToTail(5);
     linkedList.removeHead();
     expect(linkedList.contains(4)).to.equal(false);
+  });
+  
+  it('should return add 1 to the length for each node added', function(){
+    linkedList.addToTail(5);
+    linkedList.addToTail(4);
+    linkedList.addToTail(7);
+    linkedList.addToTail(9);
+    expect(linkedList.getLength()).to.equal(4);
+  });
+  
+  it('should return correct length when a value is removed', function(){
+    linkedList.addToTail(5);
+    linkedList.addToTail(4);
+    linkedList.addToTail(7);
+    linkedList.addToTail(9);
+    linkedList.removeHead();
+    expect(linkedList.getLength()).to.equal(3);
   });
 
   // add more tests here to test the functionality of linkedList

@@ -4,7 +4,13 @@ var HashTable = function(){
 };
 
 HashTable.prototype.insert = function(k, v){
-  var i = getIndexBelowMaxForKey(k, this._limit);
+  var i = getIndexBelowMaxForKey(k, this._limit);  
+  const storeKeys = Object.keys(this._storage).filter(val => Number(val));
+  const currLen = storeKeys.length;
+  
+  if (currLen > this._limit / 2) {
+    this._limit += this._limit
+  }
   
   if (this._storage[i] && !Array.isArray(this._storage[i])) {
     const tempKey = Object.keys(this._storage[i])[0];
@@ -21,7 +27,6 @@ HashTable.prototype.insert = function(k, v){
   if (!this._storage[i]) {
     this._storage[i] = { [k]: v };
   }
-  
 };
 
 HashTable.prototype.retrieve = function(k){
@@ -36,12 +41,20 @@ HashTable.prototype.retrieve = function(k){
 
 HashTable.prototype.remove = function(k){
   var i = getIndexBelowMaxForKey(k, this._limit);
+  const storeKeys = Object.keys(this._storage).filter(val => Number(val));
+  const currLen = storeKeys.length;  
   
-  this._storage[i][k] = null;    
+  if (this._limit > 8 && currLen < this._limit / 2) {
+    this._limit = (this._limit / 2);
+  }
+  
+  if (!this._storage[i]) {
+    this._storage[i] = { [k]: null };
+  } else {
+    this._storage[i][k] = null;    
+  }
 
 };
-
-
 
 /*
  * Complexity: What is the time complexity of the above functions?

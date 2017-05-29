@@ -28,8 +28,22 @@ BinarySearchTree.prototype.contains = function(value) {
   return false;  
 }
 
-BinarySearchTree.prototype.depthFirstLog = function() {
+BinarySearchTree.prototype.depthFirstLog = function(cb) {
+  if (!this.left && !this.right) return cb(this.value);
   
+  if (this.left) {
+    cb(this.value);
+    
+    return this.left.depthFirstLog(cb);
+  }
+  
+  if (this.right) {
+    cb(this.value);
+    
+    return this.right.depthFirstLog(cb);
+  }
+  
+  cb(this.value)
 }
 
 /*

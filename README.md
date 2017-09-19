@@ -83,7 +83,7 @@ Implement both **stack** and **queue** data structures in each of four instantia
 # Sprint Two: Data Structures
 ---
 
-This repo holds a mostly-empty [Mocha](http://visionmedia.github.io/mocha/) test suite. To run it, open up `SpecRunner.html`.
+This repo holds a mostly-empty [Mocha](http://mochajs.org/) test suite. To run it, open up `SpecRunner.html`.
 
 Some failing specs are included. You're welcome! You should make them pass, then write more specs and more code.
 
@@ -247,7 +247,7 @@ Write all of the following data structures and improvements in the order shown. 
 [Array methods]: http://mdn.io/Array#Methods_of_Array_instances
 [Object.create]: http://mdn.io/Object.create
 [_.extend]: http://underscorejs.org/#extend
-[Mocha]: http://visionmedia.github.io/mocha/
+[Mocha]: http://mochajs.org/
 [Chrome profiling tools]: https://developers.google.com/chrome-developer-tools/docs/profiles
 
 [Linked List]: https://en.wikipedia.org/wiki/Linked_list
